@@ -1,25 +1,26 @@
 {
-  "name": "curso-javascript-projeto-dropbox-clone",
+  "name": "dropbox",
   "version": "1.0.0",
-  "description": "Projeto desenvolvido no Curso Completo de JavaScript da Hcode",
-  "main": "index.html",
+  "description": "",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hcodebr/curso-javascript-projeto-dropbox-clone.git"
+    "url": "git+https://github.com/Leogom26/dropbox-clone.git"
   },
-  "author": "Hcode Treinamentos",
-  "license": "MIT",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hcodebr/curso-javascript-projeto-dropbox-clone/issues"
+    "url": "https://github.com/Leogom26/dropbox-clone/issues"
   },
-  "homepage": "https://github.com/hcodebr/curso-javascript-projeto-dropbox-clone#readme",
+  "homepage": "https://github.com/Leogom26/dropbox-clone#readme",
   "dependencies": {
-    "bootstrap": "^4.1.0",
-    "bower": "^1.8.14",
+    "ejs": "^3.1.10",
     "express": "^5.1.0",
-    "ionicons": "^2.0.1"
+    "helmet": "^8.1.0"
   }
 }
