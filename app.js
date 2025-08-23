@@ -6,13 +6,13 @@ const path = require("path");
 const helmet = require("helmet");
 const cors = require("cors");
 
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
+const indexRouter = require("./src/routes/index");
+const usersRouter = require("./src/routes/users");
 
 const app = express();
 
 // view engine setup
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "./src/views"));
 app.set("view engine", "ejs");
 app.use(helmet());
 app.use(cors());
