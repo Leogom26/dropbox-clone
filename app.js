@@ -4,6 +4,7 @@ const path = require("path");
 // const cookieParser = require("cookie-parser");
 // const logger = require("morgan");
 const helmet = require("helmet");
+const cors = require("cors");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
@@ -14,6 +15,7 @@ const app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(helmet());
+app.use(cors());
 
 // app.use(logger("dev"));
 app.use(express.json());
