@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/Leogom26/dropbox-clone#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "formidable": "^3.5.4"
   },
   "devDependencies": {
     "ejs": "^3.1.10",
