@@ -31,9 +31,13 @@ class DropBoxController {
 
     this.inputFilesEl.addEventListener("change", (e) => {
       this.uploadTask(e.target.files);
-
-      this.snackModalEl.style.display = "block";
+      this.modalShow();
+      this.inputFilesEl.value = "";
     });
+  }
+
+  modalShow(show = true) {
+    this.snackModalEl.style.display = show ? "block" : "none";
   }
 
   uploadTask(files) {
@@ -46,6 +50,7 @@ class DropBoxController {
           xhr.open("POST", "/upload");
 
           xhr.onload = (event) => {
+            this.modalShow(false);
             try {
               resolve(JSON.parse(xhr.responseText));
             } catch (error) {
@@ -54,6 +59,7 @@ class DropBoxController {
           };
 
           xhr.onerror = (event) => {
+            this.modalShow(false);
             reject(event);
           };
 
@@ -75,25 +81,43 @@ class DropBoxController {
   }
 
   uploadProgress(event, file) {
-    let timespent = Data.now() - this.startUploadTime;
+    let timespent = Date.now() - this.startUploadTime;
 
     let loaded = event.loaded;
     let total = event.total;
-
     let porcent = parseInt((loaded / total) * 100);
+    let timeleft = ((100 - porcent) * timespent) / porcent;
 
     this.progressBarEl.style.width = `${porcent}%`;
 
     this.namefileEl.innerHTML = file.name;
-    this.timeLeftEl.innerHTML = ((100 - porcent) * timespent) / porcent;
-
-    console.log(timespent, timeLeftEl, porcent);
+    this.timeLeftEl.innerHTML = this.formatTimeToHuman(timeleft);
   }
 
   formatTimeToHuman(duration) {
     let seconds = parseInt((duration / 1000) % 60);
     let minutes = parseInt((duration / (1000 * 60)) % 60);
     let hours = parseInt((duration / (1000 * 60 * 60)) % 24);
+
+    if (hours > 0) {
+      return `${hours}horas, ${minutes}minutos e ${seconds} segundos`;
+    }
+
+    if (minutes > 0) {
+      return `${minutes}minutos e ${seconds} segundos`;
+    }
+
+    if (seconds > 0) {
+      return `${seconds} segundos`;
+    }
+
+    return "";
+  }
+
+  getFileView() {
+    return `
+
+    `;
   }
 }
 
