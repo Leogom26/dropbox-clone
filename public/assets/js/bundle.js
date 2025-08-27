@@ -32591,6 +32591,7 @@ class DropBoxController {
       this.uploadTask(e.target.files).then((responses) => {
         responses.forEach((resp) => {
           console.log(resp.files["input-file"]);
+          this.getFirebaseRef();
         });
 
         this.modalShow(false);
