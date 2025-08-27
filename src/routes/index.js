@@ -21,9 +21,8 @@ router.post("/upload", (req, res) => {
     }
 
     // Retorna algum feedback útil
-    return res.json({
-      success: true,
-      file: files["input-file"], // o nome do campo usado no formData no front-end
+    res.json({
+      files,
     });
   });
 });

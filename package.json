@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Leogom26/dropbox-clone#readme",
   "dependencies": {
     "express": "^5.1.0",
+    "firebase": "^12.1.0",
     "formidable": "^3.5.4"
   },
   "devDependencies": {
