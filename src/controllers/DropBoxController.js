@@ -1,4 +1,4 @@
-import firebase from "firebase/compat/app";
+import { getDatabase, ref } from "firebase/database";
 import { app } from "../firebase.js";
 
 export default class DropBoxController {
@@ -39,7 +39,8 @@ export default class DropBoxController {
   }
 
   getFirebaseRef() {
-    return firebase.database.ref("file");
+    const db = getDatabase(app);
+    return ref(db, "file");
   }
 
   modalShow(show = true) {
